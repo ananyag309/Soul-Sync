@@ -1,0 +1,15 @@
+export {default as profile1} from "./profile-1.png";
+export {default as profile2} from "./profile-2.jpeg";
+export {default as profile3} from "./profile-3.jpeg";
+export {default as profile4} from "./profile-4.jpeg";
+export {default as profile5} from "./profile-5.jpg";
+export {default as profile6} from "./profile-6.png";
+export {default as profile7} from "./profile-7.jpeg";
+export {default as profile8} from "./profile-8.jpeg";
+export {default as amla} from "./amla.jpg";
+export {default as Beetroot} from "./Beetroot.jpg";
+export {default as Tomato} from "./Tomato.jpg";
+export {default as spinach} from "./spinach.jpg";
+export {default as potato} from "./potato.jpg";
+export {default as lemon} from "./lemon.jpg";
+export {default as ginger} from "./ginger.jpg";

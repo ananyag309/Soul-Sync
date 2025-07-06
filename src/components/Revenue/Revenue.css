@@ -1,0 +1,6 @@
+.revenue{
+    background: var(--primary-glow);
+    padding: 20px;
+    width: 100%;
+    border-radius: var(--radius-3);
+}

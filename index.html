@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" style="background-color: #e9e6e6;"><!-- background-color: #FFFFFF;-->
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SoulSync</title>
+  </head>
+  <body>
+    <!-- Appointment & Feedback links -->
+    <div style="
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    ">
+      <!-- Book Appointment Link -->
+      <a 
+        href="https://cal.com/devanshi-jaiswal-gjcdhl/discovery-call?date=2025-04-22&slot=2025-04-22T06%3A30%3A00.000Z" 
+        target="_blank"
+        rel="noopener noreferrer"
+        style="
+          padding: 10px 20px;
+          background-color: #f3f4f6;
+          color: #4b5563;
+          text-decoration: none;
+          border-radius: 8px;
+          font-size: 14px;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+          transition: all 0.3s ease;
+        "
+        onmouseover="this.style.backgroundColor='#e5e7eb'"
+        onmouseout="this.style.backgroundColor='#f3f4f6'"
+      >
+        Book Appointment
+      </a>
+
+      <!-- Feedback Form Link -->
+      <a 
+        href="https://forms.office.com/r/upQpq643AV?origin=lprLink" 
+        target="_blank"
+        rel="noopener noreferrer"
+        style="
+          padding: 10px 20px;
+          background-color: #f3f4f6;
+          color: #4b5563;
+          text-decoration: none;
+          border-radius: 8px;
+          font-size: 14px;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+          transition: all 0.3s ease;
+        "
+        onmouseover="this.style.backgroundColor='#e5e7eb'"
+        onmouseout="this.style.backgroundColor='#f3f4f6'"
+      >
+        Feedback Form
+      </a>
+    </div>
+
+    <!-- AI Assistant Link Script -->
+    <script>
+      var vapiInstance = null;
+      const assistant = "19190360-8f60-424e-a68e-bb6ccd932cd9"; // Substitute with your assistant ID
+      const apiKey = "ebba001c-f5b6-47b2-a2dd-1b8d7221332a"; // Substitute with your Public key from Vapi Dashboard.
+      const buttonConfig = {}; // Modify this as required
+    
+      (function (d, t) {
+        var g = document.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        g.src = "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
+        g.defer = true;
+        g.async = true;
+        s.parentNode.insertBefore(g, s);
+    
+        g.onload = function () {
+          vapiInstance = window.vapiSDK.run({
+            apiKey: apiKey,
+            assistant: assistant,
+            config: buttonConfig,
+          });
+        };
+      })(document, "script");
+    </script>
+
+    <!-- Optional Translation and Chatbot Scripts -->
+    <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+    <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2025/01/05/04/20250105040251-0KQ9JARI.js"></script>
+    <!-- <script>
+      Weglot.initialize({
+          api_key: 'wg_e60e3f9f3f477dc3b589dbd785cb03a01'
+      });
+    </script> -->
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

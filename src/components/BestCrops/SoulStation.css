@@ -1,0 +1,74 @@
+.soul__station {
+    padding: 30px 20px;
+    background: var(--secondary-glow);
+    border-radius: var(--radius-3);
+}
+
+.soul__station h1 {
+    margin-bottom: 30px;
+}
+
+/* Tabs styling */
+.tabs__container {
+    /* display: flex; */
+    gap: 15px;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.tab__button {
+    padding: 5px 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: var(--radius-3);
+}
+
+.tab__button.active {
+    color: #2563eb;
+    border-bottom: 2px solid #2563eb;
+}
+
+/* Resource cards styling */
+.resources .resource__card {
+    display: flex;
+    gap: 20px;
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: var(--radius-3);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.detail {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.detail h3.clamp {
+    margin: 0;
+    font-size: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.category {
+    padding: 5px 10px;
+    border-radius: var(--radius-3);
+    white-space: nowrap;
+}
+
+.info__container {
+    margin-left: auto;
+}
+
+.info__container small {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}

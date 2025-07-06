@@ -1,0 +1,138 @@
+main{
+    padding-left: 250px;
+    transition: var(--transition);
+}
+main >nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 8px 20px;
+    background: var(--color-background-secondary);
+    position: sticky;
+    top: 0;
+    z-index: 90;
+}
+main >nav .user__container{
+    display: flex;
+    gap: 10px;
+}
+main >nav .buttons__container{
+    display: flex;
+    align-items: center;
+    border: var(--radius-2);
+    border-width: 2px;
+    padding: 0 15px;
+    border-radius: var(--transition);
+    margin-left: auto;
+}
+
+main >nav .search__container:hover{
+    border-color: var(--color-primary);
+}
+
+main >nav .search__container .icon{
+    color: var(--color-muted);
+    transition: var(--transition);
+}
+
+main >nav .search__container:hover .icon{
+    color: var(--color-primary);
+}
+
+main >nav .search__container input{
+    display: inline-block;
+    flex: 1;
+}
+
+main >nav .menu__btn{
+    display: none;
+}
+
+main >.content{
+    min-height: 90vh;
+    padding: 20px;
+}
+
+@media (max-width:900px){
+    main{
+        padding: 0 !important;
+    }
+    main > nav .search__container{
+        display: flex;
+    }
+}
+@media (max-width:900px){
+    main{
+        padding: 0 !important;
+    }
+    main > nav .menu__btn {
+        display: flex;
+    }
+}
+
+@media (max-width: 600px){
+    main > nav .search__container {
+        display: none;
+    }
+}
+
+.simple-notification-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 250px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+    margin-top: 10px;
+    pointer-events: auto;
+}
+
+.icon__container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+}
+
+.buttons__container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.simple-notification-item {
+    padding: 8px 12px;
+    border-bottom: 1px solid #eee;
+    background: white;
+}
+
+.simple-notification-header {
+    padding: 8px 12px;
+    border-bottom: 1px solid #eee;
+    font-weight: 500;
+    font-size: 14px;
+    background: white;
+}
+
+.simple-notification-item p {
+    font-size: 13px;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.simple-notification-item span {
+    font-size: 11px;
+    color: #666;
+}

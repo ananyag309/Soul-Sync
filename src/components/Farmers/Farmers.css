@@ -1,0 +1,78 @@
+
+.soul__station {
+    background: var(--color-background-secondary);
+    padding: 30px 20px;
+    border-radius: var(--radius-3);
+}
+
+.soul__station > h1 {
+    margin-bottom: 20px;
+}
+
+/* Tabs container */
+.soul__station .tabs__container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.soul__station .tab__button {
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-muted);
+    text-transform: capitalize;
+}
+
+.soul__station .tab__button.active {
+    color: var(--color-primary);
+    background: var(--color-background-primary);
+    border-radius: var(--radius-3);
+}
+
+/* Table styling */
+.soul__station table {
+    font-size: 12px;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.soul__station th, 
+.soul__station td {
+    padding: 5px 10px;
+    font-weight: 500;
+    line-height: 21px;
+    text-align: left;
+}
+
+.soul__station td {
+    color: var(--color-muted);
+}
+
+.soul__station table tbody tr:nth-child(odd) {
+    background: var(--color-background-primary);
+}
+
+/* Status styling */
+.soul__station .status {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.soul__station .status .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .m-hide {
+        display: none;
+    }
+}

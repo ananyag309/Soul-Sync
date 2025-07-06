@@ -1,0 +1,256 @@
+/* PSS_Check.css */
+.pss-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.questions-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.question-block {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.question-text {
+  font-size: 1rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.options-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.option-button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: white;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.option-button:hover {
+  background: #edf2f7;
+}
+
+.option-button.selected {
+  background: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin: 2rem auto;
+  padding: 0.75rem 1.5rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.submit-button:hover {
+  background: #2563eb;
+}
+
+.submit-button:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+.results-section {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.score-display {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.stress-gauge {
+  position: relative;
+  width: 200px;
+  height: 100px;
+  margin: 2rem auto;
+}
+
+.gauge-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #22c55e, #eab308, #ef4444);
+  border-radius: 100px 100px 0 0;
+  overflow: hidden;
+}
+
+.gauge-fill {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  transform-origin: bottom center;
+  transition: transform 1s ease-out;
+}
+
+.gauge-center {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background: #1e293b;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.gauge-needle {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  width: 4px;
+  height: 90px;
+  background: #1e293b;
+  transform-origin: bottom center;
+  transition: transform 1s ease-out;
+  z-index: 1;
+}
+
+.gauge-markers {
+  position: absolute;
+  bottom: -25px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.stress-level-info {
+  margin: 2rem 0;
+}
+
+.stress-level {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.stress-low { color: #22c55e; }
+.stress-mid { color: #eab308; }
+.stress-high { color: #ef4444; }
+
+.stress-description {
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.suggestions-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-top: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.suggestions-card h3 {
+  color: #2c3e50;
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.suggestions-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.suggestions-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  text-align: left;
+}
+
+.suggestion-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: #3b82f6;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.suggestion-text {
+  color: #4a5568;
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .pss-container {
+    padding: 1rem;
+  }
+
+  .question-block {
+    padding: 1rem;
+  }
+
+  .options-group {
+    flex-direction: column;
+  }
+
+  .option-button {
+    width: 100%;
+  }
+
+  .stress-gauge {
+    width: 160px;
+    height: 80px;
+  }
+
+  .gauge-needle {
+    height: 70px;
+  }
+}

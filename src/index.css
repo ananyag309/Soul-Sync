@@ -1,0 +1,387 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+
+:root {
+  /* Colors */
+  --color-primary: #008000;
+  --color-primary-accent: #1E88E5;
+  --color-white: #ffffff;
+  --color-text: #111111;
+  --color-muted: #7d7d82;
+  --color-success: #33c648;
+  --color-danger: #fc605b;
+  --color-warning: #ffbb55;
+  --color-link: #2779fb;
+
+  /* Border Radius */
+  --radius-1: 5px;
+  --radius-2: 0.8rem;
+  --radius-3: 1.2rem;
+  --radius-4: 2rem;
+  --radius-5: 100%;
+
+  --transition:all 400ms ease;
+  --gray-border:1px solid rgba(125, 125, 130, 0.493);
+  --color-background-primary: #f1f1f1;
+  --color-background-secondary: #FFFFFF;
+  --color-background-variant: #e9e6e6;
+  --gradient-1:linear-gradient(to right, var(--color-primary) 0%, var(--color-primary-accent) 100%);
+  --gradient-2:linear-gradient(190deg,var(--color-primary) 0%,rgba(115,67,210,0.3) 100%);
+  --primary-glow: radial-gradient(rgba(0, 255, 0, 0.4), rgba(0, 255, 0, 0)); 
+  /* --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0)); */
+  /* --secondary-glow: linear-gradient(
+     to bottom right,
+     rgba(1, 65, 255, 0),
+     rgba(1, 65, 255, 0),
+     rgba(1, 65, 255, 0.3) 
+   ); */
+   --secondary-glow: linear-gradient(
+    to bottom right,
+    rgba(0, 255, 0, 0),   /* Fully transparent green */
+    rgba(0, 255, 0, 0),   /* Fully transparent green */
+    rgba(0, 255, 0, 0.3)   /* Semi-transparent green */
+);
+}
+
+[data-theme="dark"] {
+    --color-text:#FFFFFF;
+    --gray-border:1px solid rgba(89, 88, 88, 0.633);
+    --color-background-primary: #0A0A0C;
+    --color-background-secondary: #171719;
+    --color-background-variant: #1b1b1e;
+    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4) 0%, rgba(0, 0, 0,0.5));
+} 
+
+*{
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  scrollbar-color: var(--color-primary) transparent;
+  scrollbar-width: thin;
+}
+
+html,body{
+  min-height: 100vh; /*viewport height*/
+  font-family:"Sora",sans-serif; /*if Sora is not available you should use San Serif*/
+  color: var(--color-text); 
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+  background: var(--color-background-primary);/*this color background primary is a variable with declare at the top*/
+}
+
+body{
+  overflow: hidden;
+  overflow-y: auto;
+  max-width: 2000px;
+  margin: auto;
+}
+
+a{
+  text-decoration: none; /*by default anchor tag has underline so we don't want that underline in our anchor tag that's why we're using text decoration*/
+  color: var(--color-text);
+  display: inline-block;
+}
+
+/*all the headers headings should have a font weight of 500*/
+h1,h2,h3,h4,h5,h6{
+ font-weight: 500;
+}
+/*style them one after the other*/
+h1{
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 26px;
+}
+
+h2{
+  font-size: 17px;
+  line-height: 24px;
+}
+
+h3{
+  font-size: 16px;
+  line-height: 25px;
+  font-weight: 400;
+}
+
+h4{
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+small{
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 500;
+}
+/*here will be applied through all the elements in our page
+  helps us save time and also save us from writing a lot of code
+  create a class here and reuse it in multiple component*/
+p{
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 23px;
+}
+
+img{
+  width: 100%;
+  object-fit: cover;
+  min-height: 100%;
+  display:block;
+}
+
+input{
+  height: 40px;
+  overflow: hidden;
+  background: transparent;
+  padding: 0 10px;
+  color: var(--color-text);
+}
+
+/*text muted so anywhere we use this class name text muted the color will be color muted
+  color muted is a CSS variable we declare at the top, color primary we declare it at the top*/
+.text__muted{
+  color: var(--color-muted);
+}
+.color__primary{
+  color: var(--color-primary);
+}
+
+/*any box that we don't want the text with it to span more 
+than two lines we're going to use clamp class on it so if it 
+exhaust one line, remaining part will just be represented with 
+three dots so we're going to see this in action when we go to the section
+where we're going to be outputting the crops*/
+.clamp{
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text__gradient{
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hover__fill{
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hover__fill::after{
+  content:"";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  aspect-ratio: 1/1;
+  background: var(--gradient-1);
+  z-index: -1;
+  border-radius: inherit !important; 
+  /*border R let's use inherit and make it important so that whatever 
+  be the Border R of the parent should be the Border radi of this over field*/
+}
+/*box that transition, the box we're going to be 
+implementing using this hover field that we're creating, 
+when we get there you will see it in action*/
+
+.hover__fill:hover::after{
+  width: 100%;
+  height: 100%;
+  animation: fillBox 500ms linear;
+}
+
+/* create the animation fillBox */
+@keyframes fillBox{
+  0%{
+    width: 0%;
+    height: 0%;
+  }
+  100%{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* hover field with hover give it a color white since it has a background of gradient */
+.hover__fill:hover{
+  color: var(--color-white) !important;
+}
+
+.icon__container{
+  /* we use the min and Max to make sure it maintains the weight and height we give to it */
+  width: 2.5rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  max-width: 2.5rem;
+  max-height: 2.5rem;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-5);
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--color-text);
+  background: var(--color-background-variant);
+}
+
+.icon__container:hover{
+  transform: scale(1.2);
+}
+
+.profile{
+  width: 2rem;
+  height: 2rem;
+  min-width: 2rem;
+  min-height: 2rem;
+  max-width: 2rem;
+  max-height: 2rem;
+  overflow: hidden;
+  border-radius: var(--radius-5);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.profile:hover{
+  opacity: 0.5;
+}
+
+.dot{
+  width: 0.5rem;
+  height: 0.5rem;
+  min-width: 0.5rem;
+  min-height: 0.5rem;
+  max-width: 0.5rem;
+  max-height: 0.5rem;
+  overflow: hidden;
+  border-radius: var(--radius-5);
+  background: var(--color-success);
+}
+
+.count{
+  background: var(--gradient-1);
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-5);
+  font-size: 10px;
+  color: var(--color-white);
+}
+
+.btn{
+  padding: 15px 25px;
+  border-radius: var(--radius-2);
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--color-text);
+  background: var(--color-background-primary);
+  transition: var(--transition);
+}
+
+.btn__primary{
+  background: var(--gradient-1);
+  color: var(--color-white);
+  transition: var(--transition);
+}
+
+.btn__primary:hover{
+  background: transparent;
+  box-shadow: 0 0 1px 2px var(--color-primary);
+  color: var(--color-primary);
+}
+
+
+body,html{
+    height: 100vh;
+    @apply text-black;
+}
+
+.react-datepicker{
+    border-color: #555;
+    color: #111;
+    @apply bg-bgprimary;
+}
+
+.react-datepicker__header{
+    border-bottom-color: #555;
+    @apply bg-bgprimary;
+}
+.react-datepicker__current-month,
+.react-datepicker-time__header,
+.react-datepicker-year-header{
+    @apply text-black;
+}
+
+.react-datepicker__day,
+.react-datepicker__day-name,
+.react-datepicker__time-name{
+    color: #111;
+}
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected,
+.react-datepicker__day--in--range,
+.react-datepicker__day--in--selecting-range{
+    @apply bg-primary;
+    @apply text-black;
+}
+
+.react-datepicker__day:hover,
+.react-datepicker__month-text:hover,
+.react-datepicker__quarter-text:hover,
+.react-datepicker__year-text:hover{
+    @apply bg-primary;
+    @apply text-black;
+}
+
+/* Time selector Dark Theme */
+.react-datepicker__time-container{
+    border-left-color: #555;
+    @apply bg-bgprimary;
+}
+
+.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box{
+    width: 100%;
+    @apply bg-bgprimary;
+}
+.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul
+.react-datepicker__time-list li.react-datepicker__time-list-item{
+    color: #111;
+    @apply bg-bgprimary;
+}
+.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul
+.react-datepicker__time-list li.react-datepicker__time-list-item--selected{
+    @apply bg-primary;
+    @apply text-black;
+}
+.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul
+.react-datepicker__time-list li.react-datepicker__time-list-item:hover{
+    @apply bg-primary;
+    @apply text-black;
+}
+
+[data-theme="dark"] {
+    --color-text:#FFFFFF;
+    --gray-border:1px solid rgba(89, 88, 88, 0.633);
+    --color-background-primary: #0A0A0C;
+    --color-background-secondary: #171719;
+    --color-background-variant: #1b1b1e;
+    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4) 0%, rgba(0, 0, 0,0.5));
+}
